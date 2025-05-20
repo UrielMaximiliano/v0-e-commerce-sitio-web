@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ShoppingBag, Menu, X } from "lucide-react"
+import { ShoppingBag, Menu, X, Search } from "lucide-react"
 import { useState } from "react"
 
 interface HeaderProps {
@@ -11,6 +11,7 @@ interface HeaderProps {
 
 export default function Header({ cartCount, toggleCart }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -39,8 +40,8 @@ export default function Header({ cartCount, toggleCart }: HeaderProps) {
             </Link>
           </nav>
 
-          {/* Cart Icon */}
-          <div className="flex items-center">
+          {/* Cart and Mobile Menu Icons */}
+          <div className="flex items-center space-x-4">
             <button
               onClick={toggleCart}
               className="relative p-2 text-gray-700 hover:text-gray-900"
@@ -54,17 +55,44 @@ export default function Header({ cartCount, toggleCart }: HeaderProps) {
               )}
             </button>
 
+            {/* Mobile search button */}
+            <button
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              className="md:hidden p-2 text-gray-700 hover:text-gray-900"
+              aria-label={isSearchOpen ? "Cerrar búsqueda" : "Abrir búsqueda"}
+            >
+              <Search className="h-6 w-6" />
+            </button>
+
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="ml-4 md:hidden p-2 text-gray-700 hover:text-gray-900"
-              aria-label="Abrir menú"
+              className="md:hidden p-2 text-gray-700 hover:text-gray-900"
+              aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Search Bar */}
+      {isSearchOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200 p-3">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Buscar productos..."
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              onChange={(e) => {
+                // Aquí podrías implementar una búsqueda rápida o redirigir a la página de productos
+                console.log("Búsqueda móvil:", e.target.value)
+              }}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Mobile Navigation */}
       {isMenuOpen && (

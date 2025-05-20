@@ -6,14 +6,25 @@ interface ProductGridProps {
   addToCart: (product: Product, selectedSize: string) => void
   selectedSizes: string[]
   selectedCategories: string[]
+  searchTerm: string
 }
 
-export default function ProductGrid({ products, addToCart, selectedSizes, selectedCategories }: ProductGridProps) {
-  // Filtrar productos por talle y categoría
+export default function ProductGrid({
+  products,
+  addToCart,
+  selectedSizes,
+  selectedCategories,
+  searchTerm,
+}: ProductGridProps) {
+  // Normalizar el término de búsqueda (minúsculas y sin espacios extra)
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase()
+
+  // Filtrar productos por talle, categoría y término de búsqueda
   const filteredProducts = products.filter((product) => {
     // Si no hay filtros activos, mostrar todos los productos
     const sizeFilterActive = selectedSizes.length > 0
     const categoryFilterActive = selectedCategories.length > 0
+    const searchFilterActive = normalizedSearchTerm !== ""
 
     // Verificar si el producto cumple con el filtro de talles
     const matchesSize = !sizeFilterActive || product.sizes.some((size) => selectedSizes.includes(size))
@@ -21,8 +32,11 @@ export default function ProductGrid({ products, addToCart, selectedSizes, select
     // Verificar si el producto cumple con el filtro de categorías
     const matchesCategory = !categoryFilterActive || selectedCategories.includes(product.category)
 
-    // El producto debe cumplir con ambos filtros si están activos
-    return matchesSize && matchesCategory
+    // Verificar si el producto cumple con el filtro de búsqueda
+    const matchesSearch = !searchFilterActive || product.name.toLowerCase().includes(normalizedSearchTerm)
+
+    // El producto debe cumplir con todos los filtros activos
+    return matchesSize && matchesCategory && matchesSearch
   })
 
   return (

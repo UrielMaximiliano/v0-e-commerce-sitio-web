@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import { X } from "lucide-react" // Import the X component from lucide-react
 
 import { useState, useMemo } from "react"
 import Header from "@/components/header"
@@ -11,13 +12,18 @@ import WhatsAppButton from "@/components/whatsapp-button"
 import Cart from "@/components/cart"
 import SizeFilter from "@/components/size-filter"
 import CategoryFilter from "@/components/category-filter"
+import SearchBar from "@/components/search-bar"
 import type { Product } from "@/types/product"
+
+// Importar el componente ActiveFilters
+import ActiveFilters from "@/components/active-filters"
 
 export default function Home() {
   const [cartItems, setCartItems] = useState<Product[]>([])
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [selectedSizes, setSelectedSizes] = useState<string[]>([])
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  const [searchTerm, setSearchTerm] = useState("")
   const [customerInfo, setCustomerInfo] = useState({
     name: "",
     phone: "",
@@ -150,6 +156,17 @@ export default function Home() {
     )
   }
 
+  const handleSearch = (term: string) => {
+    setSearchTerm(term)
+  }
+
+  // Función para limpiar todos los filtros
+  const clearAllFilters = () => {
+    setSelectedSizes([])
+    setSelectedCategories([])
+    setSearchTerm("")
+  }
+
   const addToCart = (product: Product, selectedSize: string) => {
     // Verificar si el producto ya está en el carrito con el mismo talle
     const existingProductIndex = cartItems.findIndex(
@@ -181,6 +198,9 @@ export default function Home() {
     }))
   }
 
+  // Verificar si hay algún filtro activo
+  const hasActiveFilters = selectedSizes.length > 0 || selectedCategories.length > 0 || searchTerm.trim() !== ""
+
   return (
     <main className="min-h-screen flex flex-col">
       <Header cartCount={totalItems} toggleCart={toggleCart} />
@@ -201,20 +221,53 @@ export default function Home() {
         <h2 className="text-3xl font-bold mb-8 text-center">Nuestra Colección</h2>
 
         <div className="mb-8 space-y-6">
-          <CategoryFilter
-            availableCategories={allCategories}
-            selectedCategories={selectedCategories}
-            onCategoryChange={handleCategoryFilter}
-          />
+          <SearchBar onSearch={handleSearch} searchTerm={searchTerm} />
 
-          <SizeFilter availableSizes={allSizes} selectedSizes={selectedSizes} onSizeChange={handleSizeFilter} />
+          <div className="flex flex-wrap gap-6 justify-between items-start">
+            <div className="w-full md:w-auto">
+              <CategoryFilter
+                availableCategories={allCategories}
+                selectedCategories={selectedCategories}
+                onCategoryChange={handleCategoryFilter}
+              />
+            </div>
+
+            <div className="w-full md:w-auto">
+              <SizeFilter availableSizes={allSizes} selectedSizes={selectedSizes} onSizeChange={handleSizeFilter} />
+            </div>
+          </div>
+
+          {hasActiveFilters && (
+            <div className="flex justify-center">
+              <button
+                onClick={clearAllFilters}
+                className="text-sm text-gray-600 hover:text-black underline flex items-center gap-1"
+              >
+                <X className="h-4 w-4" />
+                Limpiar todos los filtros
+              </button>
+            </div>
+          )}
         </div>
+
+        {hasActiveFilters && (
+          <ActiveFilters
+            selectedSizes={selectedSizes}
+            selectedCategories={selectedCategories}
+            searchTerm={searchTerm}
+            onRemoveSize={(size) => setSelectedSizes(selectedSizes.filter((s) => s !== size))}
+            onRemoveCategory={(category) => setSelectedCategories(selectedCategories.filter((c) => c !== category))}
+            onClearSearch={() => setSearchTerm("")}
+            onClearAll={clearAllFilters}
+          />
+        )}
 
         <ProductGrid
           products={products}
           addToCart={addToCart}
           selectedSizes={selectedSizes}
           selectedCategories={selectedCategories}
+          searchTerm={searchTerm}
         />
       </section>
 
