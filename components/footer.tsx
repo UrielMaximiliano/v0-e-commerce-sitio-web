@@ -1,18 +1,32 @@
+"use client"
+
 import Link from "next/link"
-import { Facebook, Instagram, Twitter } from "lucide-react"
+import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail, Clock } from "lucide-react"
+import { useCallback } from "react"
+import { scrollManager, easingFunctions } from "@/utils/scroll"
 
 export default function Footer() {
+  const smoothScrollTo = useCallback(async (elementId: string) => {
+    await scrollManager.smoothScrollTo(elementId, {
+      duration: 1000,
+      easing: easingFunctions.easeOutQuart,
+      offset: -80,
+    })
+  }, [])
+
   return (
-    <footer id="contacto" className="bg-gray-900 text-white mt-auto">
+    <footer id="contacto" className="bg-black text-white mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Columna 1: Información */}
           <div>
             <h3 className="text-xl font-bold mb-4">
-              MODA<span className="text-gray-400">STYLE</span>
+              <span className="text-white">LA ROCKA</span>
+              <span className="text-blue-500">SHOP</span>
             </h3>
             <p className="text-gray-400 mb-4">
-              Tu tienda de moda favorita con las últimas tendencias y estilos para todas las ocasiones.
+              Tu tienda de tecnología y electrodomésticos favorita con los mejores precios y la mayor variedad en
+              productos.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -26,6 +40,10 @@ export default function Footer() {
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Twitter className="h-6 w-6" />
                 <span className="sr-only">Twitter</span>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Youtube className="h-6 w-6" />
+                <span className="sr-only">Youtube</span>
               </a>
             </div>
           </div>
@@ -54,23 +72,103 @@ export default function Footer() {
                   Preguntas Frecuentes
                 </Link>
               </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  Garantía y Devoluciones
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Columna 3: Contacto */}
+          {/* Columna 3: Categorías */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Categorías</h3>
+            <ul className="space-y-2">
+              <li>
+                <button
+                  onClick={() => smoothScrollTo("productos")}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Celulares y Notebooks
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => smoothScrollTo("productos")}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Heladeras
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => smoothScrollTo("productos")}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Lavarropas y Secarropas
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => smoothScrollTo("productos")}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Audio
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => smoothScrollTo("productos")}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Aires Acondicionados
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => smoothScrollTo("productos")}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Electrodomésticos
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => smoothScrollTo("productos")}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Bicicletas
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Columna 4: Contacto */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contacto</h3>
-            <address className="not-italic text-gray-400">
-              <p className="mb-2">Av. Corrientes 1234</p>
-              <p className="mb-2">Buenos Aires, Argentina</p>
-              <p className="mb-2">info@modastyle.com</p>
-              <p>+54 9 11 1234-5678</p>
-            </address>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <MapPin className="h-5 w-5 text-blue-500 mr-2 mt-0.5" />
+                <span className="text-gray-400">Av. Corrientes 1234, Buenos Aires, Argentina</span>
+              </li>
+              <li className="flex items-center">
+                <Phone className="h-5 w-5 text-blue-500 mr-2" />
+                <span className="text-gray-400">+54 9 11 1234-5678</span>
+              </li>
+              <li className="flex items-center">
+                <Mail className="h-5 w-5 text-blue-500 mr-2" />
+                <span className="text-gray-400">info@larockashop.com</span>
+              </li>
+              <li className="flex items-center">
+                <Clock className="h-5 w-5 text-blue-500 mr-2" />
+                <span className="text-gray-400">Lun-Vie: 9:00 - 20:00</span>
+              </li>
+            </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} MODASTYLE. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} LA ROCKA SHOP. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

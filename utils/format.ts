@@ -7,13 +7,15 @@ interface CustomerInfo {
 }
 
 export function formatWhatsAppMessage(items: Product[], total: number, customerInfo?: CustomerInfo): string {
-  if (items.length === 0) return "Hola, me gustaría hacer una consulta."
+  if (items.length === 0) return "Hola, me gustaría hacer una consulta sobre sus productos."
 
-  let message = "Hola, quiero confirmar la siguiente compra:\n\n"
+  let message = "Hola, quiero confirmar la siguiente compra en LA ROCKA SHOP:\n\n"
 
   // Detalles de los productos
   items.forEach((item) => {
-    message += `- ${item.name} ${item.selectedSize ? `(Talle: ${item.selectedSize})` : ""} x${item.quantity} = $${(item.price * item.quantity).toLocaleString()}\n`
+    const itemPrice = item.discount ? item.price - (item.price * item.discount) / 100 : item.price
+
+    message += `- ${item.name} ${item.selectedSpec ? `(${item.selectedSpec})` : ""} x${item.quantity} = $${(itemPrice * item.quantity).toLocaleString()}\n`
   })
 
   message += `\nTotal: $${total.toLocaleString()}`

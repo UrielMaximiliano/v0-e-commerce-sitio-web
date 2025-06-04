@@ -1,44 +1,51 @@
 "use client"
 
 import { X } from "lucide-react"
+import { memo } from "react"
 
 interface ActiveFiltersProps {
-  selectedSizes: string[]
+  selectedSpecs: string[]
   selectedCategories: string[]
   searchTerm: string
-  onRemoveSize: (size: string) => void
+  onRemoveSpec: (spec: string) => void
   onRemoveCategory: (category: string) => void
   onClearSearch: () => void
   onClearAll: () => void
 }
 
-export default function ActiveFilters({
-  selectedSizes,
+const ActiveFilters = memo(function ActiveFilters({
+  selectedSpecs,
   selectedCategories,
   searchTerm,
-  onRemoveSize,
+  onRemoveSpec,
   onRemoveCategory,
   onClearSearch,
   onClearAll,
 }: ActiveFiltersProps) {
-  const hasActiveFilters = selectedSizes.length > 0 || selectedCategories.length > 0 || searchTerm.trim() !== ""
+  const hasActiveFilters = selectedSpecs.length > 0 || selectedCategories.length > 0 || searchTerm.trim() !== ""
 
   if (!hasActiveFilters) return null
 
   return (
-    <div className="mb-6">
+    <div className="mb-6 bg-gray-50 p-3 rounded-lg animate-in fade-in duration-300">
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-sm font-medium text-gray-700">Filtros activos:</h3>
-        <button onClick={onClearAll} className="text-xs text-gray-500 hover:text-gray-700 underline flex items-center">
+        <button
+          onClick={onClearAll}
+          className="text-xs text-blue-600 hover:text-blue-800 underline flex items-center transition-colors duration-200"
+        >
           Limpiar todos
         </button>
       </div>
 
       <div className="flex flex-wrap gap-2">
         {searchTerm.trim() !== "" && (
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-800">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 animate-in slide-in-from-left duration-300">
             Búsqueda: {searchTerm}
-            <button onClick={onClearSearch} className="ml-1 text-gray-500 hover:text-gray-700">
+            <button
+              onClick={onClearSearch}
+              className="ml-1 text-blue-600 hover:text-blue-800 transition-colors duration-200"
+            >
               <X className="h-3 w-3" />
             </button>
           </span>
@@ -47,22 +54,28 @@ export default function ActiveFilters({
         {selectedCategories.map((category) => (
           <span
             key={category}
-            className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-800"
+            className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 animate-in slide-in-from-left duration-300"
           >
             {category}
-            <button onClick={() => onRemoveCategory(category)} className="ml-1 text-gray-500 hover:text-gray-700">
+            <button
+              onClick={() => onRemoveCategory(category)}
+              className="ml-1 text-blue-600 hover:text-blue-800 transition-colors duration-200"
+            >
               <X className="h-3 w-3" />
             </button>
           </span>
         ))}
 
-        {selectedSizes.map((size) => (
+        {selectedSpecs.map((spec) => (
           <span
-            key={size}
-            className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-800"
+            key={spec}
+            className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 animate-in slide-in-from-left duration-300"
           >
-            Talle: {size}
-            <button onClick={() => onRemoveSize(size)} className="ml-1 text-gray-500 hover:text-gray-700">
+            {spec}
+            <button
+              onClick={() => onRemoveSpec(spec)}
+              className="ml-1 text-blue-600 hover:text-blue-800 transition-colors duration-200"
+            >
               <X className="h-3 w-3" />
             </button>
           </span>
@@ -70,4 +83,6 @@ export default function ActiveFilters({
       </div>
     </div>
   )
-}
+})
+
+export default ActiveFilters

@@ -14,7 +14,13 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({ cartItems, customerInfo }: WhatsAppButtonProps) {
-  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const total = cartItems.reduce(
+    (sum, item) =>
+      sum +
+      (item.discount ? (item.price - (item.price * item.discount) / 100) * item.quantity : item.price * item.quantity),
+    0,
+  )
+
   const whatsappNumber = "5491112345678" // Reemplazar con número real
   const message = formatWhatsAppMessage(cartItems, total, customerInfo)
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
@@ -24,7 +30,7 @@ export default function WhatsAppButton({ cartItems, customerInfo }: WhatsAppButt
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-colors z-40"
+      className="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 z-40 flex items-center justify-center transform hover:scale-110 hover:shadow-xl animate-pulse"
       aria-label="Contactar por WhatsApp"
     >
       <MessageCircle className="h-6 w-6" />

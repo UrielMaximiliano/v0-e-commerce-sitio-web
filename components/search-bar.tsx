@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { Search, X } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 interface SearchBarProps {
   onSearch: (searchTerm: string) => void
@@ -18,10 +18,24 @@ export default function SearchBar({ onSearch, searchTerm }: SearchBarProps) {
     setInputValue(searchTerm)
   }, [searchTerm])
 
+  const smoothScrollTo = useCallback((elementId: string) => {
+    const element = document.getElementById(elementId)
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      })
+    }
+  }, [])
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setInputValue(value)
     onSearch(value)
+    if (value.trim() !== "") {
+      setTimeout(() => smoothScrollTo("productos"), 100)
+    }
   }
 
   const clearSearch = () => {
@@ -38,7 +52,7 @@ export default function SearchBar({ onSearch, searchTerm }: SearchBarProps) {
           value={inputValue}
           onChange={handleInputChange}
           placeholder="Buscar productos..."
-          className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+          className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
         />
         {inputValue && (
           <button

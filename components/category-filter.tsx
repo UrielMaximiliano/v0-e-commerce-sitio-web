@@ -1,9 +1,26 @@
 "use client"
 
+import type React from "react"
+import { useCallback } from "react"
+
+import { Smartphone, Laptop, Refrigerator, Waves, Headphones, Wind, Home, Bike } from "lucide-react"
+
 interface CategoryFilterProps {
   availableCategories: string[]
   selectedCategories: string[]
   onCategoryChange: (category: string) => void
+}
+
+// Mapping de categorías a iconos
+const categoryIcons: Record<string, React.ReactNode> = {
+  Celulares: <Smartphone className="h-5 w-5" />,
+  Notebooks: <Laptop className="h-5 w-5" />,
+  Heladeras: <Refrigerator className="h-5 w-5" />,
+  "Lavarropas y Secarropas": <Waves className="h-5 w-5" />,
+  Audio: <Headphones className="h-5 w-5" />,
+  "Aires Acondicionados": <Wind className="h-5 w-5" />,
+  Electrodomésticos: <Home className="h-5 w-5" />,
+  Bicicletas: <Bike className="h-5 w-5" />,
 }
 
 export default function CategoryFilter({
@@ -11,6 +28,27 @@ export default function CategoryFilter({
   selectedCategories,
   onCategoryChange,
 }: CategoryFilterProps) {
+  const smoothScrollTo = useCallback((elementId: string) => {
+    const element = document.getElementById(elementId)
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      })
+    }
+  }, [])
+
+  const handleCategoryClick = useCallback(
+    (category: string) => {
+      onCategoryChange(category)
+      if (category !== "clear") {
+        setTimeout(() => smoothScrollTo("productos"), 100)
+      }
+    },
+    [onCategoryChange, smoothScrollTo],
+  )
+
   return (
     <div className="mb-8">
       <h3 className="text-lg font-medium mb-3">Filtrar por categoría</h3>
@@ -18,13 +56,14 @@ export default function CategoryFilter({
         {availableCategories.map((category) => (
           <button
             key={category}
-            onClick={() => onCategoryChange(category)}
-            className={`px-4 py-2 border rounded-md ${
+            onClick={() => handleCategoryClick(category)}
+            className={`px-4 py-2 border rounded-md flex items-center gap-2 transition-all duration-300 transform hover:scale-105 ${
               selectedCategories.includes(category)
-                ? "bg-black text-white border-black"
-                : "bg-white text-gray-800 border-gray-300 hover:border-gray-500"
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-gray-800 border-gray-300 hover:border-blue-500"
             }`}
           >
+            {categoryIcons[category] || null}
             {category}
           </button>
         ))}
