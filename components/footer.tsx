@@ -147,7 +147,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-blue-500 mr-2 mt-0.5" />
-                <span className="text-gray-400">Av. Corrientes 1234, Buenos Aires, Argentina</span>
+                <span className="text-gray-400">La Leonesa, Chaco</span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-blue-500 mr-2" />
@@ -159,7 +159,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Clock className="h-5 w-5 text-blue-500 mr-2" />
-                <span className="text-gray-400">Lun-Vie: 9:00 - 20:00</span>
+                <span className="text-gray-400">Lun-Vie: 8:00 - 12:00 y 17:00 - 20:00</span>
               </li>
             </ul>
           </div>
