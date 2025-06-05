@@ -186,7 +186,7 @@ const PRODUCTS: Product[] = [
 
   {
     id: 8,
-    name: "Honor X8b",
+    name: "Itel A50",
     price: 247250,
     image: "/celulares/D_Q_NP_2X_948177-MLA84688735574_052025-V.webp",
     quantity: 0,
@@ -261,33 +261,7 @@ const PRODUCTS: Product[] = [
       "Sistema operativo": "Windows 11 Home",
     },
   },
-  {
-    id: 10,
-    name: "HP Pavilion 15",
-    price: 420000,
-    image: "/notebooks/D_Q_NP_2X_666691-MLA82794187380_032025-V.webp",
-    quantity: 0,
-    specs: {
-      colors: ["Plata", "Negro"],
-      processor: ["AMD Ryzen 5", "AMD Ryzen 7"],
-    },
-    category: "Notebooks",
-    rating: 4,
-    discount: 10,
-    featured: true,
-    description:
-      "Notebook potente con pantalla Full HD y teclado retroiluminado.",
-    detailedSpecs: {
-      "Colores disponibles": ["Plata", "Negro"],
-      "Procesador disponible": ["AMD Ryzen 5 5500U", "AMD Ryzen 7 5700U"],
-      Pantalla: "15.6 pulgadas Full HD IPS",
-      Memoria: "16GB DDR4",
-      Almacenamiento: "512GB SSD",
-      Gráficos: "AMD Radeon Graphics",
-      Batería: "Hasta 8 horas",
-      "Sistema operativo": "Windows 11 Home",
-    },
-  },
+  
   // LAVARROPAS Y SECARROPAS
   {
     id: 13,
@@ -315,33 +289,7 @@ const PRODUCTS: Product[] = [
       Garantía: "1 año",
     },
   },
-  {
-    id: 14,
-    name: "Secarropas Whirlpool 9kg",
-    price: 420000,
-    image: "/lavarropas/D_Q_NP_2X_769264-MLV79931940091_102024-V.webp",
-    quantity: 0,
-    specs: {
-      colors: ["Blanco"],
-      capacity: ["9kg"],
-    },
-    category: "Lavarropas y Secarropas",
-    subcategory: "Secarropas",
-    rating: 4,
-    discount: 10,
-    description:
-      "Secarropas con tecnología de bomba de calor y sensor de humedad para un secado eficiente.",
-    detailedSpecs: {
-      "Colores disponibles": ["Blanco"],
-      "Capacidad disponible": ["9kg"],
-      Tipo: "Bomba de calor",
-      "Eficiencia energética": "A++",
-      Programas: "15 programas",
-      Display: "Digital",
-      Dimensiones: "60cm x 65cm x 85cm",
-      Garantía: "1 año",
-    },
-  },
+  
   // AUDIO
   {
     id: 15,
@@ -369,60 +317,9 @@ const PRODUCTS: Product[] = [
       Garantía: "1 año",
     },
   },
-  {
-    id: 16,
-    name: "Auriculares Sony WH-1000XM5",
-    price: 180000,
-    image: "/audio/D_Q_NP_2X_948177-MLA84688735574_052025-V.webp",
-    quantity: 0,
-    specs: {
-      colors: ["Negro", "Plata"],
-    },
-    category: "Audio",
-    subcategory: "Auriculares",
-    rating: 5,
-    new: true,
-    featured: true,
-    description:
-      "Auriculares inalámbricos con cancelación de ruido líder en la industria y calidad de sonido excepcional.",
-    detailedSpecs: {
-      "Colores disponibles": ["Negro", "Plata"],
-      "Cancelación de ruido": "Activa con procesador V1",
-      Batería: "30 horas con ANC activado",
-      Conectividad: "Bluetooth 5.2, NFC",
-      "Carga rápida": "3 min = 3 horas de reproducción",
-      Controles: "Táctiles intuitivos",
-      Micrófono: "8 micrófonos para llamadas HD",
-      Garantía: "1 año",
-    },
-  },
+  
   // AIRES ACONDICIONADOS
-  {
-    id: 17,
-    name: "Aire Acondicionado Split Surrey 3200W F/C",
-    price: 320000,
-    image: "/placeholder.svg?height=300&width=300",
-    quantity: 0,
-    specs: {
-      power: ["3200W"],
-      efficiency: ["A++"],
-    },
-    category: "Aires Acondicionados",
-    rating: 4,
-    discount: 20,
-    description:
-      "Aire acondicionado Split frío/calor con tecnología Inverter y bajo consumo energético.",
-    detailedSpecs: {
-      "Potencia disponible": ["3200W"],
-      Tipo: "Split",
-      Función: "Frío/Calor",
-      Tecnología: "Inverter",
-      "Eficiencia energética": "A++",
-      Cobertura: "Hasta 30m²",
-      "Gas refrigerante": "R410A",
-      Garantía: "1 año",
-    },
-  },
+ 
   {
     id: 18,
     name: "Aire Acondicionado Portátil Philco 3500W",
@@ -475,60 +372,9 @@ const PRODUCTS: Product[] = [
       Garantía: "6 meses",
     },
   },
-  {
-    id: 20,
-    name: "Caloventor Eléctrico Liliana 2000W",
-    price: 28000,
-    image: "/placeholder.svg?height=300&width=300",
-    quantity: 0,
-    specs: {
-      power: ["2000W"],
-      features: ["2 niveles de potencia", "Termostato"],
-    },
-    category: "Electrodomésticos",
-    subcategory: "Calefacción",
-    rating: 3,
-    discount: 15,
-    description:
-      "Caloventor eléctrico con 2 niveles de potencia y termostato regulable.",
-    detailedSpecs: {
-      "Potencia disponible": ["2000W"],
-      Niveles: "2",
-      Termostato: "Regulable",
-      "Función ventilación": "Sí",
-      Protección: "Sobrecalentamiento",
-      Dimensiones: "25cm x 15cm x 30cm",
-      Garantía: "6 meses",
-    },
-  },
+  
   // BICICLETAS
-  {
-    id: 21,
-    name: "Bicicleta Mountain Bike Rodado 29",
-    price: 180000,
-    image: "/placeholder.svg?height=300&width=300",
-    quantity: 0,
-    specs: {
-      colors: ["Negro/Rojo", "Azul/Negro"],
-      size: ["M", "L", "XL"],
-    },
-    category: "Bicicletas",
-    subcategory: "Mountain Bike",
-    rating: 4,
-    featured: true,
-    description:
-      "Bicicleta Mountain Bike con cuadro de aluminio, 21 velocidades y frenos a disco.",
-    detailedSpecs: {
-      "Colores disponibles": ["Negro/Rojo", "Azul/Negro"],
-      "Tallas disponibles": ["M", "L", "XL"],
-      Rodado: "29",
-      "Material cuadro": "Aluminio",
-      Velocidades: "21",
-      Frenos: "Disco mecánico",
-      Suspensión: "Delantera",
-      Garantía: "De por vida en cuadro",
-    },
-  },
+  
   {
     id: 22,
     name: "Bicicleta Plegable Rodado 20",
