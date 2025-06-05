@@ -7,8 +7,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    // unoptimized: true, // Desactivado para optimización automática
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
