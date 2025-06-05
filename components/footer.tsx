@@ -44,8 +44,15 @@ export default function Footer() {
                 <span className="sr-only">Youtube</span>
               </a>
             </div>
-            <div className="mt-8 text-sm text-gray-500 italic">
-              Web desarrollada por <span className="font-semibold text-white">Uriel Sabugo</span> & <span className="font-semibold text-white">Nicolas Médula</span>
+            {/* Créditos de desarrollo */}
+            <div className="mt-8 flex flex-col items-center">
+              <div className="w-32 border-t border-gray-700 mb-2"></div>
+              <div className="flex items-center gap-2 text-sm text-blue-400 font-semibold italic">
+                <span>💻</span>
+                <span>
+                  Web desarrollada por <span className="text-white">Uriel Sabugo</span> & <span className="text-white">Nicolas Médula</span>
+                </span>
+              </div>
             </div>
           </div>
 
@@ -130,7 +137,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Clock className="h-5 w-5 text-blue-500 mr-2" />
-                <span className="text-gray-400">Lun-Vie: 8:00 - 12:00 y 17:00 - 20:00</span>
+                <span className="text-gray-400">Lun-Sab: 8:00 - 12:00 y 17:00 - 20:00</span>
               </li>
             </ul>
           </div>
