@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useCallback } from "react"
+import { useCallback, memo } from "react"
 
 import { Smartphone, Laptop, Refrigerator, Waves, Headphones, Wind, Home, Bike } from "lucide-react"
 
@@ -23,7 +23,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   Bicicletas: <Bike className="h-5 w-5" />,
 }
 
-export default function CategoryFilter({
+const CategoryFilter = memo(function CategoryFilter({
   availableCategories,
   selectedCategories,
   onCategoryChange,
@@ -75,4 +75,6 @@ export default function CategoryFilter({
       </div>
     </div>
   )
-}
+})
+
+export default CategoryFilter

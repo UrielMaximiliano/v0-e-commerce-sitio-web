@@ -25,7 +25,7 @@ const PRODUCTS: Product[] = [
     id: 1,
     name: "Samsung Galaxy A15",
     price: 180000,
-    image: "/images/samsung-a15.webp",
+    image: "/LAROCKA-IMAGE/Samsung-Galaxy-A15-varios-colores-66e4a331d102d-O.webp",
     quantity: 0,
     specs: {
       colors: ["Negro", "Blanco", "Amarillo"],
@@ -36,7 +36,7 @@ const PRODUCTS: Product[] = [
     rating: 4,
     discount: 10,
     featured: true,
-    description: "Smartphone con pantalla de 6.5 pulgadas, cámara triple y batería de larga duración.",
+    description: "Colores: Negro, Blanco, Amarillo. Almacenamiento: 128GB, 256GB. Smartphone con pantalla AMOLED de 6.5 pulgadas, cámara triple de 50MP y batería de larga duración.",
     detailedSpecs: {
       "Colores disponibles": ["Negro", "Blanco", "Amarillo"],
       "Almacenamiento disponible": ["128GB", "256GB"],
@@ -52,7 +52,7 @@ const PRODUCTS: Product[] = [
     id: 2,
     name: "Samsung Galaxy A06",
     price: 120000,
-    image: "/images/samsung-a06.webp",
+    image: "/LAROCKA-IMAGE/sm-a065f_galaxy_a06_blue_black_green_front-back_1_1 (1).webp",
     quantity: 0,
     specs: {
       colors: ["Blanco", "Negro", "Verde Menta"],
@@ -61,7 +61,7 @@ const PRODUCTS: Product[] = [
     category: "Celulares",
     subcategory: "Samsung",
     rating: 4,
-    description: "Smartphone económico con gran rendimiento y batería de larga duración.",
+    description: "Colores: Blanco, Negro, Verde Menta. Almacenamiento: 64GB, 128GB. Smartphone económico con gran rendimiento y batería de larga duración.",
     detailedSpecs: {
       "Colores disponibles": ["Blanco", "Negro", "Verde Menta"],
       "Almacenamiento disponible": ["64GB", "128GB"],
@@ -77,7 +77,7 @@ const PRODUCTS: Product[] = [
     id: 3,
     name: "Samsung Galaxy A05",
     price: 100000,
-    image: "/images/samsung-a05.webp",
+    image: "/LAROCKA-IMAGE/samsung_a05_fa37c0bd-1c45-40d1-bf65-47a79848cf1f.webp",
     quantity: 0,
     specs: {
       colors: ["Verde Lima", "Negro", "Blanco"],
@@ -87,7 +87,7 @@ const PRODUCTS: Product[] = [
     subcategory: "Samsung",
     rating: 3,
     discount: 15,
-    description: "Smartphone de entrada con excelente relación calidad-precio.",
+    description: "Colores: Verde Lima, Negro, Blanco. Almacenamiento: 64GB, 128GB. Smartphone de entrada con excelente relación calidad-precio.",
     detailedSpecs: {
       "Colores disponibles": ["Verde Lima", "Negro", "Blanco"],
       "Almacenamiento disponible": ["64GB", "128GB"],
@@ -103,7 +103,7 @@ const PRODUCTS: Product[] = [
     id: 4,
     name: "Motorola Moto G24 Power",
     price: 140000,
-    image: "/images/moto-g24.webp",
+    image: "/LAROCKA-IMAGE/1a7fb4cf-c093-441f-99f8-76cf61681d91.jpg",
     quantity: 0,
     specs: {
       colors: ["Azul Claro", "Negro"],
@@ -128,8 +128,8 @@ const PRODUCTS: Product[] = [
   {
     id: 5,
     name: "Motorola Moto G42",
-    price: 130000,
-    image: "/images/moto-g42.webp",
+    price: 140000,
+    image: "/LAROCKA-IMAGE/moto_g42_128gb_verde_atl_ntico_1.webp",
     quantity: 0,
     specs: {
       colors: ["Verde Atlántico"],
@@ -138,8 +138,8 @@ const PRODUCTS: Product[] = [
     category: "Celulares",
     subcategory: "Motorola",
     rating: 4,
-    discount: 20,
-    description: "Smartphone con pantalla OLED y sonido estéreo para una experiencia multimedia completa.",
+    featured: true,
+    description: "Colores: Verde Atlántico. Almacenamiento: 128GB. Smartphone con pantalla OLED y sonido estéreo para una experiencia multimedia completa.",
     detailedSpecs: {
       "Colores disponibles": ["Verde Atlántico"],
       "Almacenamiento disponible": ["128GB"],
@@ -155,7 +155,7 @@ const PRODUCTS: Product[] = [
     id: 6,
     name: "Tecno Spark Go 1",
     price: 90000,
-    image: "/images/tecno-spark.webp",
+    image: "/LAROCKA-IMAGE/86c673ae-3714-48d5-982a-fba5bc0981f2.jpg",
     quantity: 0,
     specs: {
       colors: ["Blanco"],
@@ -181,7 +181,7 @@ const PRODUCTS: Product[] = [
     id: 7,
     name: "Xiaomi Redmi 13C",
     price: 110000,
-    image: "/images/xiaomi-redmi.webp",
+    image: "/LAROCKA-IMAGE/ar-galaxy-a05-sm-a055-sm-a055mlgearo-541218513.avif",
     quantity: 0,
     specs: {
       colors: ["Negro"],
@@ -206,7 +206,7 @@ const PRODUCTS: Product[] = [
     id: 8,
     name: "Honor X8b",
     price: 160000,
-    image: "/images/honor-x8b.webp",
+    image: "/LAROCKA-IMAGE/D_Q_NP_2X_948177-MLA84688735574_052025-V.webp",
     quantity: 0,
     specs: {
       colors: ["Negro", "Blanco"],
@@ -234,7 +234,7 @@ const PRODUCTS: Product[] = [
     id: 9,
     name: "Lenovo IdeaPad 3 15.6",
     price: 350000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/LAROCKA-IMAGE/D_Q_NP_2X_666691-MLA82794187380_032025-V.webp",
     quantity: 0,
     specs: {
       colors: ["Gris", "Azul"],
@@ -258,7 +258,7 @@ const PRODUCTS: Product[] = [
     id: 10,
     name: "HP Pavilion 15",
     price: 420000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/LAROCKA-IMAGE/D_Q_NP_2X_666691-MLA82794187380_032025-V.webp",
     quantity: 0,
     specs: {
       colors: ["Plata", "Negro"],
@@ -285,7 +285,7 @@ const PRODUCTS: Product[] = [
     id: 11,
     name: "Heladera Samsung No Frost 382L",
     price: 650000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/LAROCKA-IMAGE/D_Q_NP_2X_607477-MLU78397062461_082024-V.webp",
     quantity: 0,
     specs: {
       colors: ["Inox", "Negro", "Blanco"],
@@ -295,7 +295,7 @@ const PRODUCTS: Product[] = [
     subcategory: "No Frost",
     rating: 5,
     featured: true,
-    description: "Heladera con tecnología No Frost y Twin Cooling Plus para una mejor conservación de alimentos.",
+    description: "Colores: Inox, Negro, Blanco. Capacidad: 382L. Heladera con tecnología No Frost y Twin Cooling Plus para una mejor conservación de alimentos.",
     detailedSpecs: {
       "Colores disponibles": ["Inox", "Negro", "Blanco"],
       "Capacidad disponible": ["382L"],
@@ -311,7 +311,7 @@ const PRODUCTS: Product[] = [
     id: 12,
     name: "Heladera Whirlpool Frost Free 462L",
     price: 720000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/LAROCKA-IMAGE/D_Q_NP_2X_769264-MLV79931940091_102024-V.webp",
     quantity: 0,
     specs: {
       colors: ["Inox"],
@@ -321,7 +321,7 @@ const PRODUCTS: Product[] = [
     subcategory: "Frost Free",
     rating: 4,
     discount: 15,
-    description: "Heladera con tecnología Frost Free y compartimentos especiales para frutas y verduras.",
+    description: "Colores: Inox. Capacidad: 462L. Heladera con tecnología Frost Free y compartimentos especiales para frutas y verduras.",
     detailedSpecs: {
       "Colores disponibles": ["Inox"],
       "Capacidad disponible": ["462L"],
@@ -338,7 +338,7 @@ const PRODUCTS: Product[] = [
     id: 13,
     name: "Lavarropas Drean Next 8.12 ECO",
     price: 380000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/LAROCKA-IMAGE/D_Q_NP_2X_607477-MLU78397062461_082024-V.webp",
     quantity: 0,
     specs: {
       colors: ["Blanco"],
@@ -363,7 +363,7 @@ const PRODUCTS: Product[] = [
     id: 14,
     name: "Secarropas Whirlpool 9kg",
     price: 420000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/LAROCKA-IMAGE/D_Q_NP_2X_769264-MLV79931940091_102024-V.webp",
     quantity: 0,
     specs: {
       colors: ["Blanco"],
@@ -390,7 +390,7 @@ const PRODUCTS: Product[] = [
     id: 15,
     name: "Parlante Bluetooth JBL Charge 5",
     price: 95000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/LAROCKA-IMAGE/D_Q_NP_2X_948177-MLA84688735574_052025-V.webp",
     quantity: 0,
     specs: {
       colors: ["Negro", "Azul", "Rojo"],
@@ -415,7 +415,7 @@ const PRODUCTS: Product[] = [
     id: 16,
     name: "Auriculares Sony WH-1000XM5",
     price: 180000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/LAROCKA-IMAGE/D_Q_NP_2X_948177-MLA84688735574_052025-V.webp",
     quantity: 0,
     specs: {
       colors: ["Negro", "Plata"],

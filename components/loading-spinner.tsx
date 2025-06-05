@@ -8,6 +8,9 @@ interface LoadingSpinnerProps {
 }
 
 const LoadingSpinner = memo(function LoadingSpinner({ size = "md", className = "" }: LoadingSpinnerProps) {
+  // SRP: solo muestra el spinner
+  // OCP: fácil de extender con más tamaños o estilos
+  // ISP: props claros y específicos
   const sizeClasses = {
     sm: "w-4 h-4",
     md: "w-8 h-8",

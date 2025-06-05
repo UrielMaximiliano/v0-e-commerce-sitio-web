@@ -19,12 +19,12 @@ interface OptimizedImageProps {
 const OptimizedImage = memo(function OptimizedImage({
   src,
   alt,
-  width,
-  height,
+  width = 300,
+  height = 300,
   fill = false,
   className = "",
   priority = false,
-  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw",
+  sizes,
   onLoad,
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true)

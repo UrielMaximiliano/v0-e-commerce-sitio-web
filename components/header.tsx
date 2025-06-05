@@ -13,7 +13,13 @@ interface HeaderProps {
   searchTerm: string
 }
 
-const Header = memo(function Header({ cartCount, toggleCart, onSearch, onCategorySelect, searchTerm }: HeaderProps) {
+const Header = memo(function Header({
+  cartCount,
+  toggleCart,
+  onSearch,
+  onCategorySelect,
+  searchTerm,
+}: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm)
@@ -71,8 +77,8 @@ const Header = memo(function Header({ cartCount, toggleCart, onSearch, onCategor
               onClick={() => handleNavClick("inicio")}
               className="font-bold text-2xl flex items-center hover:text-blue-400 transition-colors duration-300"
             >
-              <span className="text-white">LA ROCKA</span>
-              <span className="text-blue-500 ml-1">SHOP</span>
+              <span className="text-white font-extrabold uppercase">LA ROCKA</span>
+              <span className="text-blue-500 font-extrabold uppercase ml-1">SHOP</span>
             </button>
           </div>
 

@@ -21,12 +21,10 @@ export default function Footer() {
           {/* Columna 1: Información */}
           <div>
             <h3 className="text-xl font-bold mb-4">
-              <span className="text-white">LA ROCKA</span>
-              <span className="text-blue-500">SHOP</span>
+              <span className="text-white">La Rocka Shop</span>
             </h3>
             <p className="text-gray-400 mb-4">
-              Tu tienda de tecnología y electrodomésticos favorita con los mejores precios y la mayor variedad en
-              productos.
+              Tu tienda de tecnología y electrodomésticos favorita, con los mejores precios y la mayor variedad de productos.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -153,7 +151,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-blue-500 mr-2" />
-                <span className="text-gray-400">+54 9 11 1234-5678</span>
+                <span className="text-gray-400">+54 9 362 455-4385</span>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-blue-500 mr-2" />
@@ -168,7 +166,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} LA ROCKA SHOP. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} La Rocka Shop. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

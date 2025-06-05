@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import { memo } from "react"
 
 import { Search, X } from "lucide-react"
 import { useState, useEffect, useCallback } from "react"
@@ -10,7 +11,7 @@ interface SearchBarProps {
   searchTerm: string
 }
 
-export default function SearchBar({ onSearch, searchTerm }: SearchBarProps) {
+const SearchBar = memo(function SearchBar({ onSearch, searchTerm }: SearchBarProps) {
   const [inputValue, setInputValue] = useState(searchTerm)
 
   // Sincronizar el valor del input con el searchTerm externo
@@ -66,4 +67,6 @@ export default function SearchBar({ onSearch, searchTerm }: SearchBarProps) {
       </div>
     </div>
   )
-}
+})
+
+export default SearchBar
