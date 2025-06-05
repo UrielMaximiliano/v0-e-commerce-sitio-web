@@ -106,7 +106,7 @@ const PRODUCTS: Product[] = [
   {
     id: 4,
     name: "Motorola Moto G24 Power",
-    price: 140000,
+    price: 213000,
     image: "/celulares/1a7fb4cf-c093-441f-99f8-76cf61681d91.jpg",
     quantity: 0,
     specs: {
@@ -183,35 +183,11 @@ const PRODUCTS: Product[] = [
       "Sistema operativo": "Android 13 Go Edition",
     },
   },
-  {
-    id: 7,
-    name: "Xiaomi Redmi 13C",
-    price: 110000,
-    image: "/celulares/ar-galaxy-a05-sm-a055-sm-a055mlgearo-541218513.avif",
-    quantity: 0,
-    specs: {
-      colors: ["Negro"],
-      storage: ["128GB", "256GB"],
-    },
-    category: "Celulares",
-    subcategory: "Xiaomi",
-    rating: 4,
-    description: "Smartphone con gran pantalla y cámara de alta resolución.",
-    detailedSpecs: {
-      "Colores disponibles": ["Negro"],
-      "Almacenamiento disponible": ["128GB", "256GB"],
-      Pantalla: "6.74 pulgadas HD+",
-      "Cámara principal": "50MP + 2MP + 2MP",
-      Procesador: "MediaTek Helio G85",
-      RAM: "4GB",
-      Batería: "5000mAh con carga rápida 18W",
-      "Sistema operativo": "Android 13 con MIUI 14",
-    },
-  },
+
   {
     id: 8,
     name: "Honor X8b",
-    price: 160000,
+    price: 247250,
     image: "/celulares/D_Q_NP_2X_948177-MLA84688735574_052025-V.webp",
     quantity: 0,
     specs: {
@@ -236,6 +212,29 @@ const PRODUCTS: Product[] = [
       "Sistema operativo": "Android 13 con MagicOS 7.2",
     },
   },
+  {
+    id: 2001,
+    name: "Tecno Spark 30C",
+    price: 359999,
+    image: "/public/celulares/c30.png",
+    quantity: 0,
+    specs: {
+      colors: ["Orbit White", "Magic Skin Green"],
+      storage: ["256GB"],
+    },
+    category: "Celulares",
+    subcategory: "Tecno",
+    rating: 4,
+    description:
+      "Tecno Spark 30C 256GB + 4GB RAM. Orbit White y Magic Skin Green.",
+    detailedSpecs: {
+      "Colores disponibles": ["Orbit White", "Magic Skin Green"],
+      "Almacenamiento disponible": ["256GB"],
+      RAM: "4GB",
+    },
+  },
+
+    
   // NOTEBOOKS
   {
     id: 9,
