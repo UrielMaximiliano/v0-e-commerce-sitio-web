@@ -26,7 +26,7 @@ export default function Footer() {
             <p className="text-gray-400 mb-4">
               Tu tienda de tecnología y electrodomésticos favorita, con los mejores precios y la mayor variedad de productos.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mt-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Facebook className="h-6 w-6" />
                 <span className="sr-only">Facebook</span>
@@ -44,38 +44,9 @@ export default function Footer() {
                 <span className="sr-only">Youtube</span>
               </a>
             </div>
-          </div>
-
-          {/* Columna 2: Enlaces útiles */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Enlaces Útiles</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Sobre Nosotros
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Términos y Condiciones
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Política de Privacidad
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Preguntas Frecuentes
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Garantía y Devoluciones
-                </Link>
-              </li>
-            </ul>
+            <div className="mt-8 text-sm text-gray-500 italic">
+              Web desarrollada por <span className="font-semibold text-white">Uriel Sabugo</span> & <span className="font-semibold text-white">Nicolas Médula</span>
+            </div>
           </div>
 
           {/* Columna 3: Categorías */}
