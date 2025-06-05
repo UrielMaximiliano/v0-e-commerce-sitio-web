@@ -131,18 +131,17 @@ export const createIntersectionObserver = (
 // Preload critical resources
 export const preloadCriticalResources = () => {
   const criticalImages = [
-    "/images/hero-tech.png",
-    "/images/samsung-a15.webp",
-    "/images/samsung-a06.webp",
-    "/images/samsung-a05.webp",
-    "/images/moto-g24.webp",
-  ]
+    "/LAROCKA-IMAGE/Samsung-Galaxy-A15-varios-colores-66e4a331d102d-O.webp",
+    "/LAROCKA-IMAGE/sm-a065f_galaxy_a06_blue_black_green_front-back_1_1 (1).webp",
+    "/LAROCKA-IMAGE/samsung_a05_fa37c0bd-1c45-40d1-bf65-47a79848cf1f.webp",
+    "/LAROCKA-IMAGE/moto_g42_128gb_verde_atl_ntico_1.webp"
+  ];
 
   criticalImages.forEach((src) => {
-    const link = document.createElement("link")
-    link.rel = "preload"
-    link.as = "image"
-    link.href = src
-    document.head.appendChild(link)
-  })
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = src;
+    document.head.appendChild(link);
+  });
 }
