@@ -17,6 +17,7 @@ import FeaturedCategories from "@/components/featured-categories";
 import SubcategoryFilter from "@/components/subcategory-filter";
 import type { Product } from "@/types/product";
 import PerformanceMonitor from "@/components/performance-monitor";
+import useGSAPAnimations from "@/hooks/useGSAPAnimations";
 
 // Mover productos fuera del componente para evitar recreación
 const PRODUCTS: Product[] = [
@@ -107,7 +108,7 @@ const PRODUCTS: Product[] = [
     id: 4,
     name: "Motorola Moto G24 Power",
     price: 213000,
-    image: "/celulares/1a7fb4cf-c093-441f-99f8-76cf61681d91.jpg",
+    image: "/celulares/g24power.webp",
     quantity: 0,
     specs: {
       colors: ["Azul Claro", "Negro"],
@@ -161,7 +162,7 @@ const PRODUCTS: Product[] = [
     id: 6,
     name: "Tecno Spark Go 1",
     price: 190000,
-    image: "/celulares/86c673ae-3714-48d5-982a-fba5bc0981f2.jpg",
+    image: "/celulares/tecnoSpark.webp",
     quantity: 0,
     specs: {
       colors: ["Blanco"],
@@ -216,7 +217,7 @@ const PRODUCTS: Product[] = [
     id: 2001,
     name: "Tecno Spark 30C",
     price: 359999,
-    image: "/public/celulares/c30.png",
+    image: "/celulares/c30.png",
     quantity: 0,
     specs: {
       colors: ["Orbit White", "Magic Skin Green"],
@@ -225,49 +226,32 @@ const PRODUCTS: Product[] = [
     category: "Celulares",
     subcategory: "Tecno",
     rating: 4,
+    featured: true,
     description:
-      "Tecno Spark 30C 256GB + 4GB RAM. Orbit White y Magic Skin Green.",
+      "Tecno Spark 30C con 256GB de almacenamiento y 4GB de RAM. Disponible en colores Orbit White y Magic Skin Green. Pantalla de 6.6 pulgadas y cámara de 50MP.",
     detailedSpecs: {
       "Colores disponibles": ["Orbit White", "Magic Skin Green"],
       "Almacenamiento disponible": ["256GB"],
+      Pantalla: "6.6 pulgadas HD+",
+      "Cámara principal": "50MP + 2MP",
+      Procesador: "MediaTek Helio G85",
       RAM: "4GB",
+      Batería: "5000mAh",
+      "Sistema operativo": "Android 13",
     },
   },
 
     
   // NOTEBOOKS
-  {
-    id: 9,
-    name: "Lenovo IdeaPad 3 15.6",
-    price: 350000,
-    image: "/notebooks/D_Q_NP_2X_666691-MLA82794187380_032025-V.webp",
-    quantity: 0,
-    specs: {
-      colors: ["Gris", "Azul"],
-      processor: ["Intel Core i3", "Intel Core i5"],
-    },
-    category: "Notebooks",
-    rating: 4,
-    description:
-      "Notebook versátil para trabajo y estudio con excelente rendimiento.",
-    detailedSpecs: {
-      "Colores disponibles": ["Gris", "Azul"],
-      "Procesador disponible": ["Intel Core i3-1115G4", "Intel Core i5-1135G7"],
-      Pantalla: "15.6 pulgadas Full HD",
-      Memoria: "8GB DDR4",
-      Almacenamiento: "256GB SSD",
-      Gráficos: "Intel UHD Graphics",
-      Batería: "Hasta 7 horas",
-      "Sistema operativo": "Windows 11 Home",
-    },
-  },
+ 
+  ///////////////////////////LUGAR PARA COMPUTADORAS///////////////////////////
   
   // LAVARROPAS Y SECARROPAS
   {
     id: 13,
-    name: "Lavarropas Drean Next 8.12 ECO",
-    price: 380000,
-    image: "/lavarropas/D_Q_NP_2X_607477-MLU78397062461_082024-V.webp",
+    name: "Lavarropas Drean 8kg",
+    price: 1034000,
+    image: "/lavarropas/drean 8kg.webp",
     quantity: 0,
     specs: {
       colors: ["Blanco"],
@@ -277,131 +261,90 @@ const PRODUCTS: Product[] = [
     subcategory: "Lavarropas",
     rating: 4,
     description:
-      "Lavarropas de carga frontal con 12 programas de lavado y eficiencia energética A+++.",
+      "Lavarropas Drean 8kg.",
     detailedSpecs: {
       "Colores disponibles": ["Blanco"],
       "Capacidad disponible": ["8kg"],
-      "Velocidad de centrifugado": "1200 RPM",
-      "Eficiencia energética": "A+++",
-      Programas: "12 programas",
-      Display: "LED",
-      Dimensiones: "60cm x 60cm x 85cm",
-      Garantía: "1 año",
+
+    },
+  },
+  {
+    id: 17,
+    name: "Lavarropas Drean 6kg",
+    price: 732000,
+    image: "/lavarropas/drean 6kg.webp",
+    quantity: 0,
+    specs: {
+      colors: ["Blanco"],
+      capacity: ["6kg"],
+    },
+    category: "Lavarropas y Secarropas",
+    subcategory: "Lavarropas",
+    rating: 4,
+    description:
+      "Lavarropas Drean 6kg con carga superior, económico y confiable para uso diario.",
+    detailedSpecs: {
+      "Colores disponibles": ["Blanco"],
+      "Capacidad disponible": ["6kg"],
+    },
+  },
+  {
+    id: 16,
+    name: "Lavarropas Codini Silent Semiautomático 10kg",
+    price: 310500,
+    image: "/lavarropas/codini semiautomatico.webp",
+    quantity: 0,
+    specs: {
+      colors: ["Blanco"],
+      capacity: ["10kg"],
+    },
+    category: "Lavarropas y Secarropas",
+    subcategory: "Lavarropas",
+    rating: 4,
+    description:
+      "Lavarropas Codini Semiautomático 10kg con tecnología Direct Drive y 6 Motion DD, silencioso y duradero.",
+    detailedSpecs: {
+      "Colores disponibles": ["Blanco"],
+      "Capacidad disponible": ["10kg"],
+      Programas: "7 programas",
+
+    },
+  },
+  {
+    id: 14,
+    name: "Lavarropas Codini Silent 10kg",
+    price: 196650,
+    image: "/lavarropas/codini 10kg.webp",
+    quantity: 0,
+    specs: {
+      colors: ["Blanco"],
+      capacity: ["10kg"],
+    },
+    category: "Lavarropas y Secarropas",
+    subcategory: "Lavarropas",
+    rating: 5,
+    featured: true,
+    description:
+      "Lavarropas Codini 10kg con tecnología EcoBubble y carga superior, ideal para familias grandes.",
+    detailedSpecs: {
+      "Colores disponibles": ["Blanco"],
+      "Capacidad disponible": ["10kg"],
+      Programas: "6 programas",
     },
   },
   
   // AUDIO
-  {
-    id: 15,
-    name: "Parlante Bluetooth JBL Charge 5",
-    price: 95000,
-    image: "/audio/D_Q_NP_2X_948177-MLA84688735574_052025-V.webp",
-    quantity: 0,
-    specs: {
-      colors: ["Negro", "Azul", "Rojo"],
-    },
-    category: "Audio",
-    subcategory: "Parlantes",
-    rating: 5,
-    featured: true,
-    description:
-      "Parlante Bluetooth resistente al agua con 20 horas de reproducción y powerbank integrado.",
-    detailedSpecs: {
-      "Colores disponibles": ["Negro", "Azul", "Rojo"],
-      Potencia: "40W",
-      Batería: "Hasta 20 horas",
-      Resistencia: "IP67 (agua y polvo)",
-      Conectividad: "Bluetooth 5.1",
-      Powerbank: "Sí",
-      Dimensiones: "22cm x 9.5cm x 9.5cm",
-      Garantía: "1 año",
-    },
-  },
+
   
   // AIRES ACONDICIONADOS
- 
-  {
-    id: 18,
-    name: "Aire Acondicionado Portátil Philco 3500W",
-    price: 250000,
-    image: "/placeholder.svg?height=300&width=300",
-    quantity: 0,
-    specs: {
-      power: ["3500W"],
-      efficiency: ["A"],
-    },
-    category: "Aires Acondicionados",
-    rating: 3,
-    description:
-      "Aire acondicionado portátil solo frío con control remoto y temporizador.",
-    detailedSpecs: {
-      "Potencia disponible": ["3500W"],
-      Tipo: "Portátil",
-      Función: "Solo frío",
-      Tecnología: "Estándar",
-      "Eficiencia energética": "A",
-      Cobertura: "Hasta 25m²",
-      "Gas refrigerante": "R410A",
-      Garantía: "1 año",
-    },
-  },
+
+
   // ELECTRODOMÉSTICOS
-  {
-    id: 19,
-    name: 'Ventilador de Pie Liliana 20"',
-    price: 45000,
-    image: "/placeholder.svg?height=300&width=300",
-    quantity: 0,
-    specs: {
-      power: ["100W"],
-      features: ["Oscilante", "3 velocidades"],
-    },
-    category: "Electrodomésticos",
-    subcategory: "Ventiladores",
-    rating: 4,
-    description:
-      "Ventilador de pie con 3 velocidades, oscilación y altura regulable.",
-    detailedSpecs: {
-      "Potencia disponible": ["100W"],
-      Diámetro: "20 pulgadas",
-      Velocidades: "3",
-      Oscilación: "Sí",
-      "Altura regulable": "Sí",
-      Timer: "No",
-      Dimensiones: "50cm x 40cm x 130cm",
-      Garantía: "6 meses",
-    },
-  },
+ 
   
   // BICICLETAS
   
-  {
-    id: 22,
-    name: "Bicicleta Plegable Rodado 20",
-    price: 120000,
-    image: "/placeholder.svg?height=300&width=300",
-    quantity: 0,
-    specs: {
-      colors: ["Negro", "Blanco"],
-      size: ["Única"],
-    },
-    category: "Bicicletas",
-    subcategory: "Plegables",
-    rating: 4,
-    new: true,
-    description:
-      "Bicicleta plegable ideal para ciudad y transporte público, con 6 velocidades.",
-    detailedSpecs: {
-      "Colores disponibles": ["Negro", "Blanco"],
-      "Tallas disponibles": ["Única"],
-      Rodado: "20",
-      "Material cuadro": "Acero",
-      Velocidades: "6",
-      Frenos: "V-Brake",
-      Plegado: "Rápido en 15 segundos",
-      Garantía: "1 año",
-    },
-  },
+
   // HELADERAS GAFA BLANCA
   {
     id: 1001,
@@ -485,6 +428,9 @@ const PRODUCTS: Product[] = [
 ];
 
 export default function Home() {
+  // Inicializar animaciones GSAP
+  useGSAPAnimations();
+
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedSpecs, setSelectedSpecs] = useState<string[]>([]);
