@@ -68,7 +68,7 @@ const Header = memo(function Header({
   )
 
   return (
-    <header className="sticky top-0 z-50 bg-black text-white shadow-lg">
+    <header className="sticky top-0 z-50 bg-black text-white shadow-lg header-animation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

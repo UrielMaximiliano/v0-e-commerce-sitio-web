@@ -128,50 +128,32 @@ const ProductCard = memo(function ProductCard({
 
   return (
     <div
-      className={`bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ${
-        isFiltered ? "opacity-100" : "opacity-100"
+      className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 product-card ${
+        isHovered ? 'shadow-lg scale-[1.02]' : ''
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative h-64 w-full overflow-hidden">
-        <OptimizedImage
-          src={product.image || "/placeholder.svg?height=300&width=300"}
+      <div className="relative aspect-square">
+        <Image
+          src={product.image}
           alt={product.name}
-          width={300}
-          height={300}
-          className={`object-contain p-4 transition-transform duration-300 ${
-            isHovered ? "scale-105" : "scale-100"
-          }`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-300"
           priority={product.featured}
+          quality={85}
         />
-
-        {/* Badges */}
-        <div className="absolute top-2 left-2 flex flex-col gap-2">
-          {product.discount && (
-            <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
-              -{product.discount}%
-            </span>
-          )}
-          {product.new && (
-            <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
-              NUEVO
-            </span>
-          )}
-        </div>
-
-        <div className="absolute top-2 right-2">
-          <button
-            onClick={() => setShowDetails(!showDetails)}
-            className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200"
-          >
-            <Info className="h-4 w-4 text-gray-600" />
-          </button>
-        </div>
-
-        <div className="absolute bottom-2 right-2 bg-black text-white text-xs px-2 py-1 rounded">
-          {product.category}
-        </div>
+        {product.discount && (
+          <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
+            -{product.discount}%
+          </div>
+        )}
+        {product.new && (
+          <div className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
+            Nuevo
+          </div>
+        )}
       </div>
 
       <div className="p-4">

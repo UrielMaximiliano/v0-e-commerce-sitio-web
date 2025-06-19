@@ -72,7 +72,7 @@ const Hero = memo(function Hero({ onNavigateToProducts, onNavigateToFeatured }: 
         <div className="md:w-1/2 hidden md:block animate-in fade-in slide-in-from-right duration-1000 delay-700">
           <div className="grid grid-cols-2 gap-4 text-white">
             {[
-              { number: "500+", label: "Productos" },
+              { number: "+50", label: "Productos" },
               { number: "8", label: "Categorías" },
               { number: "24/7", label: "Soporte" },
               { number: "💳", label: "Todas las tarjetas" },
