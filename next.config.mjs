@@ -24,6 +24,7 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: true,
+<<<<<<< HEAD
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
@@ -34,6 +35,12 @@ const nextConfig = {
       topLevelAwait: true,
     };
     return config;
+=======
+    optimizePackageImports: ['@mui/icons-material', '@mui/material'],
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+>>>>>>> 5f6c269c9985e61f7b9e1c38009627263aad61e5
   },
 };
 
